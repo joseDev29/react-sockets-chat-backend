@@ -30,6 +30,7 @@ const createUser = async (req, res) => {
       ok: true,
       msg: "user created successfully",
       user: {
+        uid: user.id,
         name: user.name,
         email: user.email,
       },
@@ -71,6 +72,7 @@ const login = async (req, res) => {
     return res.status(200).json({
       ok: true,
       user: {
+        uid: userDB.id,
         name: userDB.name,
         email: userDB.email,
       },
@@ -103,6 +105,7 @@ const renewToken = async (req, res) => {
     return res.status(200).json({
       ok: true,
       user: {
+        uid: user.id,
         name: user.name,
         email: user.email,
       },

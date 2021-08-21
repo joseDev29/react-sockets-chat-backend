@@ -25,4 +25,13 @@ const validateToken = (req, res, next) => {
   }
 };
 
-module.exports = { validateToken };
+const validateJWTSocket = (token = "") => {
+  try {
+    const { uid } = jwt.verify(token, key);
+    return [true, uid];
+  } catch (error) {
+    return [false, null];
+  }
+};
+
+module.exports = { validateToken, validateJWTSocket };
